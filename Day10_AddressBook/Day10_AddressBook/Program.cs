@@ -1,6 +1,25 @@
 ﻿using Day10_AddressBook;
 
 AddressBook address = new AddressBook();
-address.AddNewContact();
-Console.WriteLine();
-address.Display();
+string command = "";
+
+while (command != "exit")
+{
+    Console.WriteLine("Please enter a command: add , edit ,display, exit: ");
+    command = Console.ReadLine().ToLower();
+
+    switch (command)
+    {
+        case "add":
+            address.AddPerson();
+            break;
+        case "edit":
+            address.EditContact();
+            break;
+        case "display":
+            address.Display();
+            break;
+        case "exit":
+            break;
+    }
+}
