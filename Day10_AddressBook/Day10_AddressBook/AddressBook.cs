@@ -9,33 +9,33 @@ namespace Day10_AddressBook
     public class AddressBook
     {
         public List<Contact> addressBook = new List<Contact>();
-        public void AddNewContact()
-        {
-            Contact contact = new Contact();
+        //public void AddNewContact()
+        //{
+        //    Contact contact = new Contact();
 
-            Console.WriteLine("enter first name");
-            contact.FirstName = Console.ReadLine();
+        //    Console.WriteLine("enter first name");
+        //    contact.FirstName = Console.ReadLine();
 
-            Console.WriteLine("enter second name");
-            contact.LastName = Console.ReadLine();
+        //    Console.WriteLine("enter second name");
+        //    contact.LastName = Console.ReadLine();
 
-            Console.WriteLine("enter address name");
-            contact.Address = Console.ReadLine();
+        //    Console.WriteLine("enter address name");
+        //    contact.Address = Console.ReadLine();
 
-            Console.WriteLine("enter phno name");
-            contact.PhNo = Console.ReadLine();
+        //    Console.WriteLine("enter phno name");
+        //    contact.PhNo = Console.ReadLine();
 
-            Console.WriteLine("enter city name");
-            contact.City = Console.ReadLine();
+        //    Console.WriteLine("enter city name");
+        //    contact.City = Console.ReadLine();
 
-            Console.WriteLine("enter state name");
-            contact.State = Console.ReadLine();
+        //    Console.WriteLine("enter state name");
+        //    contact.State = Console.ReadLine();
 
-            Console.WriteLine("enter zip name");
-            contact.Zip = Console.ReadLine();
+        //    Console.WriteLine("enter zip name");
+        //    contact.Zip = Console.ReadLine();
 
-            addressBook.Add(contact);
-        }
+        //    addressBook.Add(contact);
+        //}
         public void AddPerson()
         {
             Contact person = new Contact();
@@ -54,12 +54,14 @@ namespace Day10_AddressBook
             person.LastName = Console.ReadLine();
             Console.Write("Enter city name: ");
             person.City = Console.ReadLine();
+            Console.Write("Enter state name: ");
+            person.State = Console.ReadLine();
             Console.Write("Enter zip number: ");
             person.Zip = Console.ReadLine();
             Console.Write("Enter Phone Number: ");
-            person.Email = Console.ReadLine();
-            Console.Write("Enter Phone Email: ");
             person.PhNo = Console.ReadLine();
+            Console.Write("Enter Phone Email: ");
+            person.Email = Console.ReadLine();
             Console.Write("Enter Address 1: ");
             person.Address = Console.ReadLine();
             addressBook.Add(person);
@@ -73,7 +75,7 @@ namespace Day10_AddressBook
                 if (contact.FirstName.ToLower() == firstname.ToLower())
                 {
                     Console.WriteLine("enter which information you wnat to change");
-                    Console.WriteLine("enter 1 to edit last name,2 to change the city,3 to zip,4 to Email,5 to phonenumber");
+                    Console.WriteLine("enter 1 to edit last name,2 to change the city,3 to state,4 to zip,5 to Email,6 to phonenumber");
                     int option = Convert.ToInt32(Console.ReadLine());
                     switch (option)
                     {
@@ -86,14 +88,18 @@ namespace Day10_AddressBook
                             contact.City = Console.ReadLine();
                             break;
                         case 3:
+                            Console.WriteLine("enter the state");
+                            contact.State = Console.ReadLine();
+                            break;
+                        case 4:
                             Console.WriteLine("enter the zip");
                             contact.Zip = Console.ReadLine();
                             break;
-                        case 4:
+                        case 5:
                             Console.WriteLine("enter the Email");
                             contact.Email = Console.ReadLine();
                             break;
-                        case 5:
+                        case 6:
                             Console.WriteLine("enter the phone number");
                             contact.PhNo = Console.ReadLine();
                             break;
@@ -126,5 +132,16 @@ namespace Day10_AddressBook
                 Console.WriteLine($"Firstname \t{contact.FirstName}\n Lastname \t {contact.LastName}\n PhoneNumber \t{contact.PhNo}\ncity \t{contact.City}\n zip \t{contact.Zip}\n Email \t{contact.Email}\n Adress \t{contact.Address}\n ");
             }
         }
+        public void AddMultipleContact()
+        {
+            Console.WriteLine("enter number of contact you want to add");
+            int N = Convert.ToInt32(Console.ReadLine());
+            while (N > 0)
+            {
+                AddPerson();
+                N--;
+            }
+        }
+
     }
 }
